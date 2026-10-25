@@ -5,15 +5,26 @@ A WhatsApp bot that turns "where should we meet?" into a fair, metro-friendly, b
 ## Requirements
 
 - Node.js 22 or later
+- Docker Desktop (runs Postgres + PostGIS)
 
 ## Getting started
 
-```bash
-npm install
-npm run dev
-```
+1. Copy `.env.example` to `.env` and set `POSTGRES_PASSWORD` (use the same password inside `DATABASE_URL`).
+2. Start the database:
 
-Then open http://localhost:3000/health. It should show `ok`.
+   ```bash
+   docker compose up -d
+   ```
+
+   This runs Postgres 17 with PostGIS 3.5 on port 5433.
+3. Start the server:
+
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+Then open http://localhost:3000/health (or the `PORT` you set in `.env`). It should show `ok`.
 
 ## Scripts
 
